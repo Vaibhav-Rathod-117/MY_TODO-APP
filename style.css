@@ -124,3 +124,4 @@ button.complete-btn:hover, button.delete-btn:hover {
 #todo-table .todo-date::before {
     content: "Due Date: ";
 }
+

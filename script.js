@@ -1,4 +1,3 @@
-
 const taskInput = document.getElementById("task-input");
 const categoryInput = document.getElementById("category-input");
 const prioritySelect = document.getElementById("priority-select");
@@ -16,11 +15,12 @@ filterStatus.addEventListener("change", filterTasks);
 filterPriority.addEventListener("change", sortTasks);
 
 function addTask(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent form submission
 
     const taskName = taskInput.value.trim();
     const category = categoryInput.value.trim() || "General";
     const priority = prioritySelect.value;
+    const date = document.getElementById("date-input").value || null; // Get the selected date
 
     if (taskName === "" || priority === "") {
         alert("Task name and priority are required.");
@@ -32,43 +32,17 @@ function addTask(event) {
         category: category,
         priority: priority,
         completed: false,
+        date: date, // Store the due date
     };
 
     saveTodoToLocalStorage(newTask);
     renderTodos();
     todoForm.reset();
 }
-
-function addTask(event) {
-    event.preventDefault();
-
-    const taskName = taskInput.value.trim();
-    const category = categoryInput.value.trim() || "General";
-    const priority = prioritySelect.value;
-    const date = document.getElementById("date-input").value || null; // Capture the optional date
-
-    if (taskName === "" || priority === "") {
-        alert("Task name and priority are required.");
-        return;
-    }
-
-    const newTask = {
-        name: taskName,
-        category: category,
-        priority: priority,
-        completed: false,
-        date: date, // Store the date
-    };
-
-    saveTodoToLocalStorage(newTask);
-    renderTodos();
-    todoForm.reset();
-}
-
 
 function renderTodos() {
     const todos = getTodosFromLocalStorage();
-    todoList.innerHTML = "";
+    todoList.innerHTML = ""; // Clear the current list
 
     todos.forEach((todo, index) => {
         const todoItem = document.createElement("tr");
@@ -84,6 +58,7 @@ function renderTodos() {
             <td class="todo-name">${todo.name}</td>
             <td class="todo-category">${todo.category}</td>
             <td class="todo-priority ${priorityClass}">${capitalizeFirstLetter(todo.priority)}</td>
+            <td class="todo-date">${todo.date || "No date"}</td> <!-- Display the date -->
             <td class="todo-status">${todo.completed ? "Completed" : "Pending"}</td>
             <td>
                 <button class="complete-btn">${todo.completed ? "Undo" : "Complete"}</button>
@@ -114,7 +89,6 @@ function getPriorityClass(priority) {
             return "";
     }
 }
-
 
 function toggleComplete(todo, index) {
     todo.completed = !todo.completed;
