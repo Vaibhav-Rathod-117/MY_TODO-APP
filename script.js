@@ -50,10 +50,13 @@ function renderTodos() {
             todoItem.classList.add("completed");
         }
 
+        // Apply priority color classes
+        const priorityClass = getPriorityClass(todo.priority);
+
         todoItem.innerHTML = `
             <td class="todo-name">${todo.name}</td>
             <td class="todo-category">${todo.category}</td>
-            <td class="todo-priority">${capitalizeFirstLetter(todo.priority)}</td>
+            <td class="todo-priority ${priorityClass}">${capitalizeFirstLetter(todo.priority)}</td>
             <td class="todo-status">${todo.completed ? "Completed" : "Pending"}</td>
             <td>
                 <button class="complete-btn">${todo.completed ? "Undo" : "Complete"}</button>
@@ -70,6 +73,21 @@ function renderTodos() {
         todoList.appendChild(todoItem);
     });
 }
+
+// Function to return the class for priority color
+function getPriorityClass(priority) {
+    switch (priority) {
+        case "high":
+            return "high-priority";
+        case "medium":
+            return "medium-priority";
+        case "low":
+            return "low-priority";
+        default:
+            return "";
+    }
+}
+
 
 function toggleComplete(todo, index) {
     todo.completed = !todo.completed;

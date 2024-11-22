@@ -98,3 +98,19 @@ button.complete-btn:hover, button.delete-btn:hover {
 .todo-item {
     transition: background-color 0.3s;
 }
+
+/* Color indications for priority */
+.high-priority {
+    background-color: #ff4747; /* Red for high priority */
+    color: white;
+}
+
+.medium-priority {
+    background-color: #f0ad4e; /* Yellow for medium priority */
+    color: white;
+}
+
+.low-priority {
+    background-color: #5bc0de; /* Green for low priority */
+    color: white;
+}
