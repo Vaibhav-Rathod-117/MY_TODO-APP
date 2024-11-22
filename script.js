@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+    renderTodos();
+});
+
 const taskInput = document.getElementById("task-input");
 const categoryInput = document.getElementById("category-input");
 const prioritySelect = document.getElementById("priority-select");
