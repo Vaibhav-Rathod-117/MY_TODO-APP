@@ -39,6 +39,33 @@ function addTask(event) {
     todoForm.reset();
 }
 
+function addTask(event) {
+    event.preventDefault();
+
+    const taskName = taskInput.value.trim();
+    const category = categoryInput.value.trim() || "General";
+    const priority = prioritySelect.value;
+    const date = document.getElementById("date-input").value || null; // Capture the optional date
+
+    if (taskName === "" || priority === "") {
+        alert("Task name and priority are required.");
+        return;
+    }
+
+    const newTask = {
+        name: taskName,
+        category: category,
+        priority: priority,
+        completed: false,
+        date: date, // Store the date
+    };
+
+    saveTodoToLocalStorage(newTask);
+    renderTodos();
+    todoForm.reset();
+}
+
+
 function renderTodos() {
     const todos = getTodosFromLocalStorage();
     todoList.innerHTML = "";
