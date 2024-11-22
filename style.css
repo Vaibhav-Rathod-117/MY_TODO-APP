@@ -1,0 +1,100 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input, select, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 90%;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#todo-container {
+    width: 80%;
+    max-width: 700px;
+    margin-top: 20px;
+}
+
+#todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#todo-table th, #todo-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#todo-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.complete-btn, button.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button.complete-btn {
+    color: #4CAF50;
+}
+
+button.delete-btn {
+    color: #ff4747;
+}
+
+button.complete-btn:hover, button.delete-btn:hover {
+    text-decoration: underline;
+}
+
+.completed {
+    background-color: #d3ffd3;
+}
+
+.todo-item {
+    transition: background-color 0.3s;
+}

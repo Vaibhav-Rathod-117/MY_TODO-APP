@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <header>
+        <h1>My To-Do List</h1>
+    </header>
+
+    <div class="form-container">
+        <form id="todo-form">
+            <input type="text" id="task-input" placeholder="Enter Task Name" required>
+            <input type="text" id="category-input" placeholder="Enter Category (Optional)">
+            <select id="priority-select" required>
+                <option value="">Select Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button type="submit" id="add-task-button">Add Task</button>
+        </form>
+
+        <input type="text" id="search-bar" placeholder="Search tasks...">
+        <select id="filter-status">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+        </select>
+        <select id="filter-priority">
+            <option value="all">Sort by Priority</option>
+            <option value="high">High Priority First</option>
+            <option value="medium">Medium Priority First</option>
+            <option value="low">Low Priority First</option>
+        </select>
+    </div>
+
+    <div id="todo-container">
+        <table id="todo-table">
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Category</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="todo-list">
+                <!-- Tasks will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
